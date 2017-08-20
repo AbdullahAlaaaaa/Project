@@ -31,7 +31,14 @@
 
 @section('content')
 
+<!-- a messy view of the orders of each user
 
+1 - couldnt manage to create a cart so each order has a single item 
+2- the item section contains the JSON object of the bought item
+
+..sigh...
+
+ -->
 <h1>You orders {{Auth::user()->name}}:</h1> 
 
 <table class="table table-bordered table-hover">

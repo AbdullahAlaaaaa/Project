@@ -8,3 +8,6 @@ class Cat extends Model
 {
     //
 }
+
+
+//dummy model

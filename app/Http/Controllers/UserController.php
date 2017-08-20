@@ -11,15 +11,15 @@ class UserController extends Controller
 {
     
 
-
-    public function getAll()
+    // shows all registered users
+    public function getAll() 
     {
        $users = DB::table('users')->get();
         return view('pages.users')->with(['users'=>$users]);
     }
 
 
-
+    // redirects to the edit user page
     public function editUserPage($id)
     {
        $users = DB::table('users')->where('id', $id)->first();
@@ -29,7 +29,7 @@ class UserController extends Controller
     }
 
 
-
+    // takes form input data>validates it and update the corrosponding user
     public function editUser(Request $req)
     {
 
@@ -51,7 +51,8 @@ class UserController extends Controller
         $password = $req->input('password');
         $Password = $req->input('Password');
 
-$hashed = Hash::make($password);
+        $hashed = Hash::make($password);
+        // password cant be stored as it is .. since during login laravel compares the bcrypt not the password it self
 
         $data= array("name"=>$name,"email"=>$email,"Password"=>$hashed);
 
@@ -61,7 +62,7 @@ $hashed = Hash::make($password);
     }
 
 
-
+    // Adds a user after validation 
     public function addUser(Request $req)
     {
 

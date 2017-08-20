@@ -29,7 +29,7 @@
 
 
 
-
+<!-- Displays the errors -if any- in page -->
 @if($errors->count() >0)
         <div class="alert alert-danger">
             @foreach($errors->all() as $error)
@@ -38,7 +38,7 @@
         </div>
     @endif
 
-
+<!-- this portion can onyl be accessed by admin -->
 @if (Auth::user()->admin==1)
 <form action="/items/additem">
   Title<br>
@@ -57,7 +57,7 @@
   <br><br>
 
 
-
+<!-- the admin can go through and choose any of the existing categories -->
   <select name="category">
 
   @foreach ($categories as $category)
@@ -104,7 +104,7 @@
 
 
 
-
+<!-- two forms with the sole purpose to act as a button and sort the content -->
 <form action="/items/sortasc">
   
   <input type="submit" name="Ascending" value="Sort by Price: Ascending">
@@ -118,6 +118,8 @@
 <br><br>
 </form>
 
+
+<!-- a form used to find the item title in the data base and display it - returning errors if not found -->
 <form action="/items/find/{{$item->item_id}}">
   
   <input type="text" name="title" >
@@ -128,7 +130,9 @@
 
 
 
- <table class="table table-bordered table-hover">
+
+<!-- the items table .. the 'Buy' action can only be accessed by users, 'Delete' and 'Edit can only be accesed by admins' -->
+<table class="table table-bordered table-hover">
                     <thead>
                     <th class="text-center">ID</th>
                     <th class="text-center">Title</th>

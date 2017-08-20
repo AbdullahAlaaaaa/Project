@@ -18,8 +18,10 @@
 
 
 
+<!-- this page is accessed after the admin uses the 'Edit' button at the suers page -->
 
 
+<!-- this form is used to edit user's information going through several validators -->
  <form action="/users/edituser/edit/{{$user->id}}">
   <label>User:</label><br>
   <input type="text" name="name" value="{{$user->name}}">

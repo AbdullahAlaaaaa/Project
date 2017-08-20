@@ -28,9 +28,11 @@
 
 
 
-
+<!-- this content can be accesed only by the admins - aside from the isAdmin middleware -->
 @if (Auth::user()->admin==1)
 
+
+<!-- shows the errors -->
 @if($errors->count() >0)
         <div class="alert alert-danger">
             @foreach($errors->all() as $error)
@@ -40,6 +42,7 @@
     @endif
 
 
+<!-- This form is used by the admins to add users going through the same validators of the registration -->
 <form action="/users/adduser">
   <label>Name:</label><br>
   <input type="text" name="name" value="">
@@ -50,30 +53,21 @@
 
   <label>Password</label><br>
   <input type="text" name="password" value="">
+  
   <br><br>
-
-
-
-  <br><br>
-
-
-
- 
-
-
-
-
-<br>
 
   <input type="submit" value="Submit">
 
 
-</form> 
+ </form> 
+
+
 <br><br><br>
 @endif
 
 
 
+<!-- Displays all the users and providing the means to edit and delete those users -->
 <table class="table table-bordered table-hover">
                     <thead>
                     <th class="text-center">ID</th>

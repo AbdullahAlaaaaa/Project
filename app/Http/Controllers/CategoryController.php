@@ -10,6 +10,7 @@ use Category;
 
 class CategoryController extends Controller
 {
+    // show all available categories
     public function getAll()
     {
        $categories =App\Category::get();
@@ -22,7 +23,7 @@ class CategoryController extends Controller
 
     }
 
-
+    // adds a category based on the input
     public function addcategory(Request $req)
     {
        $title = $req->input('title');

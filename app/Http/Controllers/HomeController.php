@@ -35,7 +35,7 @@ class HomeController extends Controller
         return view('home');
     }
 
-
+    // dummy function used to access a dummy page - for testing 
     public function index1()
     {
 
